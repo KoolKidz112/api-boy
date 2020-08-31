@@ -1,0 +1,18 @@
+{
+  "name": "discordobotto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "hoylecake",
+  "license": "ISC",
+  "dependencies": {
+    "deepai": "^1.0.15",
+    "discord.js": "^12.3.1",
+    "discord.js-commando": "^0.10.0",
+    "node-fetch": "^2.6.0"
+  }
+}
