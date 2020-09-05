@@ -2,7 +2,9 @@ module.exports = {
     name: 'horoscope',
     description: 'horoscope',
     cooldown: 5,
-    execute(message, args) {
+    async execute(message, args) {
+        const fetch = require('node-fetch');
+        const { MessageEmbed } = require('discord.js');
         console.log('*horoscope requested...');
         const horoscopeURL = `https://aztro.sameerkumar.website?sign=${args}&day=today`;
         const hr = await fetch(horoscopeURL, {

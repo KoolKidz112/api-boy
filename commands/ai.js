@@ -2,8 +2,10 @@ module.exports = {
     name: 'ai',
     description: 'uses text2image api to bring you nightmares daily',
     cooldown: 5,
-    execute(message, args) {
+    async execute(message, args) {
         console.log('*ai requested...');
+        const { MessageEmbed } = require('discord.js');
+        const deepai = require('deepai');
         const input = args
         if (!args.length) {
             return message.channel.send("please provide text for the output");

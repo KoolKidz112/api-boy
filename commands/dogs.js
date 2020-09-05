@@ -2,8 +2,10 @@ module.exports = {
     name: 'dogs',
     description: 'le dog facts',
     cooldown: 3,
-    execute(message) {
+    async execute(message) {
         console.log('*dogs requested...');
+        const fetch = require('node-fetch');
+        const { MessageEmbed } = require('discord.js');
         const { facts } = await fetch('https://dog-api.kinduff.com/api/facts').then(response => response.json());
         const { link } = await fetch('https://some-random-api.ml/img/dog').then(response => response.json());
 
