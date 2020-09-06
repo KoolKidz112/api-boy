@@ -8,7 +8,7 @@ module.exports = {
             .setTitle('commands')
             .addFields(
                 {name:'pets', value:'cats, dogs'},
-                {name:'fun',value:'ai'},
+                {name:'fun',value:'ai, joke'},
                 {name:'information',value:'horoscope'},
                 {name:'debug',value:'ping, argtest, apitest'},
                 {name:'misc',value:'invite, help'}
