@@ -7,7 +7,7 @@ module.exports = {
         const helpEmbed = new MessageEmbed()
             .setTitle('commands')
             .addFields(
-                {name:'pets', value:'cat,s dogs'},
+                {name:'pets', value:'cats, dogs'},
                 {name:'fun',value:'ai'},
                 {name:'information',value:'horoscope, weather'},
                 {name:'debug',value:'ping, argtest, apitest'},
