@@ -2,6 +2,18 @@ module.exports = {
     name: 'help',
     description: 'displays commands',
     execute(message, args) {
-        message.channel.send('current list of commands (prefix is *): \n \nhelp\napitest\nping\ninvite\ncats\ndogs\nai\nhoroscope');
+        const { MessageEmbed } = require('discord.js');
+
+        const helpEmbed = new MessageEmbed()
+            .setTitle('commands')
+            .addFields(
+                {name:'pets', value:'cat,s dogs'},
+                {name:'fun',value:'ai'},
+                {name:'information',value:'horoscope, weather'},
+                {name:'debug',value:'ping, argtest, apitest'},
+                {name:'misc',value:'invite, help'}
+            );
+
+        message.channel.send(helpEmbed);
     },
 };
