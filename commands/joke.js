@@ -1,29 +1,33 @@
 module.exports = {
     name: 'joke',
     description: 'funy joke?? ? ? ?  ?yes funy',
-    execute(message, args) {
-        var unirest = require("unirest");
+    async execute(message, args) {
+        const { MessageEmbed, DiscordAPIError, Message } = require('discord.js');
+        const fetch = require('node-fetch');
+        console.log("*joke requestes.. .. erueqre..s. .uhhh");
+        var jokeURL = undefined;
+        if (!args.length) {
+            jokeURL = "https://icanhazdadjoke.com/"
+        } else {
+            jokeID = args;
+            jokeURL = `https://icanhazdadjoke.com/j/${jokeID}`;
+        }
+        const lejoke = await fetch(jokeURL, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        jokeID = lejoke.id;
 
-        var req = unirest("POST", "https://joke3.p.rapidapi.com/v1/joke");
+        const JokeEmbed = new MessageEmbed()
+            .setTitle("joke")
+            .setDescription(lejoke.joke)
+            .setFooter(`to see this joke again type *joke ${jokeID}`)
 
-        req.headers({
-	        "x-rapidapi-host": "joke3.p.rapidapi.com",
-	        "x-rapidapi-key": "46511de4b9mshb9637d49a1ddc73p1f0779jsn3a7f36fb61d3",
-	        "content-type": "application/json",
-	        "accept": "application/json",
-	        "useQueryString": true
-        });
-
-        req.type("json");
-        req.send({
-	        "content": "A joke here",
-	        "nsfw": "false"
-        });
-
-        req.end(function (res) {
-	        if (res.error) throw new Error(res.error);
-
-	        console.log(res.body);
-        });
+        message.channel.send(JokeEmbed);
+        console.log(lejoke);
+        console.log("done!");
     }
 }
