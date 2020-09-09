@@ -2,7 +2,7 @@ module.exports = {
     name: 'joke',
     description: 'funy joke?? ? ? ?  ?yes funy',
     async execute(message, args) {
-        const { MessageEmbed, DiscordAPIError, Message } = require('discord.js');
+        const { MessageEmbed } = require('discord.js');
         const fetch = require('node-fetch');
         console.log("*joke requestes.. .. erueqre..s. .uhhh");
         var jokeURL = undefined;
