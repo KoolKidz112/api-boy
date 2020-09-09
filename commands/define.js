@@ -16,12 +16,12 @@ module.exports = {
             }
 
             const definitionEmbed = new MessageEmbed()
-                .setTitle(`definition of ${args}`)
-                .setDescription(`${def.definition}
-                Example: ${def.examples}`)
+                .setTitle(`definition of ${args} (${data.type})`)
+                .setDescription(`${data.definition}
+                Example: ${data.example}`)
                 .setFooter('provided by owlbot');
-
-            message.channel.send(definition);
+            
+            message.channel.send(definitionEmbed);
         });
     }
 }
