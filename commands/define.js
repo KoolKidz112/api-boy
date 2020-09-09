@@ -1,5 +1,3 @@
-const { MessageEmbed } = require("discord.js");
-
 module.exports = {
     name: 'define',
     description: 'look up words using the owlbot dictionary',
@@ -9,13 +7,12 @@ module.exports = {
 
         var owlbot = require('owlbot-js');
         var client = owlbot(secret.owlBotKey);
+        const { MessageEmbed } = require("discord.js");
         client.define(args).then(function(result){
-
-            JSON.parse(result);
-
+            
             console.log(result.definitions[1]);
 
-            const definition = new MessageEmbed()
+            const definitionEmbed = new MessageEmbed()
                 .setTitle(`definition of ${args}`)
                 .setDescription(`${result}
                 Example: ${result.definitions.example}`)
