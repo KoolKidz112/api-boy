@@ -7,18 +7,20 @@ module.exports = {
 
         var owlbot = require('owlbot-js');
         var client = owlbot(secret.owlBotKey);
-        const { MessageEmbed } = require("discord.js");
         client.define(args).then(function(result){
             
             console.log(result.definitions[1]);
+            for (i in result.definitions) {
+                def = result.definitions[i];
+                var data = def;
+            }
 
             const definitionEmbed = new MessageEmbed()
                 .setTitle(`definition of ${args}`)
-                .setDescription(`${result}
-                Example: ${result.definitions.example}`)
+                .setDescription(`${def.definition}
+                Example: ${def.examples}`)
                 .setFooter('provided by owlbot');
 
-            console.log(result.definitions[{definition}]);    
             message.channel.send(definition);
         });
     }
