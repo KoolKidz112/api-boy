@@ -9,7 +9,6 @@ module.exports = {
         var client = owlbot(secret.owlBotKey);
         client.define(args).then(function(result){
             
-            console.log(result.definitions[1]);
             for (i in result.definitions) {
                 def = result.definitions[i];
                 var data = def;
