@@ -12,6 +12,8 @@ module.exports = {
             .setDescription(`${imbored.activity} (${imbored.participants} person/people)`)
             .setURL(imbored.link)
 
+            // reminder: log link of the activity and id to console for debug (possibly)
+
             message.channel.send(activityEmbed);
     }
 }
